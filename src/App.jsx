@@ -21,6 +21,10 @@ function App() {
       setCurrentIndex(currentIndex + 3);
     }
   };
+  const handleRangeChange = (event) => {
+    const index = Number(event.target.value);
+    setCurrentIndex(index);
+  };
 
   return (
     <div className="container">
@@ -31,6 +35,14 @@ function App() {
         ))}
       </div>
       <button onClick={handleRightClick}>right</button>
+      <input
+        type="range"
+        min="0"
+        max={slidesContent.length - 3}
+        value={currentIndex}
+        onChange={handleRangeChange}
+        className="slider"
+      />
     </div>
   )
 }
